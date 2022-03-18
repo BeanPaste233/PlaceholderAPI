@@ -37,7 +37,7 @@ namespace PlaceholderAPI
             args.List["{playerMaxMana}"] = plr.TPlayer.statManaMax.ToString();
             args.List["{playerHP}"] = plr.TPlayer.statLife.ToString();
             args.List["{playerMana}"] = plr.TPlayer.statMana.ToString();
-            args.List["{region}"] = plr.CurrentRegion.Name;
+            args.List["{region}"] = (plr.CurrentRegion == null ? "无" : plr.CurrentRegion.Name);
         }
 
         protected override void Dispose(bool disposing)
