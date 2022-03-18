@@ -19,24 +19,25 @@ namespace PlaceholderAPI
         public override string Description => "一款通用占位符插件";
         public static PlaceholderAPI Instance { get { return instance; } }
         private static PlaceholderAPI instance;
-        public PlaceholderManager placeholderManager=new PlaceholderManager();
+        public PlaceholderManager placeholderManager = new PlaceholderManager();
         public override void Initialize()
         {
             instance = this;
-            placeholderManager.Register("{player}");
+            Register();
             Hooks.PreGetText += OnGetText;
-            Commands.ChatCommands.Add(new Command("test",test,"ptest"));
         }
-
-        private void test(CommandArgs args)
-        {
-            string text = "{player} 's placeholderAPI is testing.";
-            TShock.Log.ConsoleInfo(placeholderManager.GetText(text,args.Player));
-        }
-
         private void OnGetText(Hooks.GetTextArgs args)
         {
-            args.List["{player}"] = "BeanPasteTest";
+            var plr = args.Player;
+            args.List["{player}"] = plr.Name;
+            args.List["{group}"] = plr.Group.Name;
+            args.List["{helditem}"] = plr.TPlayer.HeldItem.netID.ToString();
+            args.List["{playerDead}"] = (plr.Dead ? "已死亡" : "存活");
+            args.List["{playerMaxHP}"] = plr.TPlayer.statLifeMax.ToString();
+            args.List["{playerMaxMana}"] = plr.TPlayer.statManaMax.ToString();
+            args.List["{playerHP}"] = plr.TPlayer.statLife.ToString();
+            args.List["{playerMana}"] = plr.TPlayer.statMana.ToString();
+            args.List["{region}"] = plr.CurrentRegion.Name;
         }
 
         protected override void Dispose(bool disposing)
@@ -46,6 +47,18 @@ namespace PlaceholderAPI
                 Hooks.PreGetText -= OnGetText;
             }
             base.Dispose(disposing);
+        }
+        private void Register() 
+        {
+            placeholderManager.Register("{player}");
+            placeholderManager.Register("{group}");
+            placeholderManager.Register("{helditem}");
+            placeholderManager.Register("{playerDead}");
+            placeholderManager.Register("{playerMaxHP}");
+            placeholderManager.Register("{playerMaxMana}");
+            placeholderManager.Register("{playerHP}");
+            placeholderManager.Register("{playerMana}");
+            placeholderManager.Register("{region}");
         }
     }
 }
