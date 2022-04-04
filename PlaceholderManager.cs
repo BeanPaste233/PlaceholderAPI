@@ -27,8 +27,8 @@ namespace PlaceholderAPI
         }
         public string Colorful(string text)
         {
+            string final = "";
             var texts = text.Split('&');
-            string final="";
             for (int i = 1; i < texts.Length; i++)
             {
                 if (colors.ContainsKey(texts[i][0]))
@@ -39,6 +39,7 @@ namespace PlaceholderAPI
                 }
                 final += texts[i];
             }
+            if (string.IsNullOrEmpty(final)) final = text;
             return final;
         }
         public void Register(string key) 
