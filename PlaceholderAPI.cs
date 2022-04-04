@@ -12,7 +12,7 @@ namespace PlaceholderAPI
     [ApiVersion(2,1)]
     public class PlaceholderAPI : TerrariaPlugin
     {
-        public PlaceholderAPI(Terraria.Main game) : base(game){ }
+        public PlaceholderAPI(Terraria.Main game) : base(game){ Order = -1; }
         public override string Name => "PlaceholderAPI";
         public override Version Version => Assembly.GetExecutingAssembly().GetName().Version;
         public override string Author => "豆沙";
@@ -24,6 +24,7 @@ namespace PlaceholderAPI
         {
             instance = this;
             Register();
+            placeholderManager.InitializeColors();
             Hooks.PreGetText += OnGetText;
         }
         private void OnGetText(Hooks.GetTextArgs args)
