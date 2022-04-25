@@ -11,3 +11,5 @@ D:\Projects\PlaceholderAPI\obj\Release\PlaceholderAPI.csproj.CoreCompileInputs.c
 D:\Projects\PlaceholderAPI\obj\Release\PlaceholderAPI.csproj.CopyComplete
 D:\Projects\PlaceholderAPI\obj\Release\PlaceholderAPI.dll
 D:\Projects\PlaceholderAPI\obj\Release\PlaceholderAPI.pdb
+D:\Projects\PlaceholderAPI\bin\Release\MySql.Data.dll
+D:\Projects\PlaceholderAPI\bin\Release\Mono.Data.Sqlite.dll

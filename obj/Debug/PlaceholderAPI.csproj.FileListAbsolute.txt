@@ -11,4 +11,6 @@ D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.csproj.CoreCompileInputs.cac
 D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.csproj.CopyComplete
 D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.dll
 D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.pdb
+D:\Projects\PlaceholderAPI\bin\Debug\MySql.Data.dll
+D:\Projects\PlaceholderAPI\bin\Debug\Mono.Data.Sqlite.dll
 D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.csproj.AssemblyReference.cache

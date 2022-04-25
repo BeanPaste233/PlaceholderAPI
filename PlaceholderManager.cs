@@ -28,14 +28,18 @@ namespace PlaceholderAPI
         public string Colorful(string text)
         {
             string final = "";
-            var texts = text.Split('&');
-            for (int i = 1; i < texts.Length; i++)
+            var texts = text.Split(new char[]{ '&'}, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < texts.Length; i++)
             {
                 if (colors.ContainsKey(texts[i][0]))
                 {
                     char letter = texts[i][0];
                     texts[i] = texts[i].Remove(0, 1);
-                    texts[i] = texts[i].Color(colors[letter]);
+                    bool flag =  texts[i].Contains("[i:") || 
+                                 texts[i].Contains("[c/") || 
+                                 texts[i].Contains("[g:") ||
+                                 texts[i].Contains("[i/");
+                    if (!flag) texts[i] = texts[i].Color(colors[letter]);
                 }
                 final += texts[i];
             }
