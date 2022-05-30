@@ -34,7 +34,6 @@ namespace PlaceholderAPI
                 if (colors.ContainsKey(texts[i][0]))
                 {
                     char letter = texts[i][0];
-                    texts[i] = texts[i].Remove(0, 1);
                     bool flag =  texts[i].Contains("[i:") || 
                                  texts[i].Contains("[c/") || 
                                  texts[i].Contains("[g:") ||
